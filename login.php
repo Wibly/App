@@ -7,6 +7,9 @@
     $username = $_POST['username'];
     $password = $_POST['password'];
 
+    $username = mysqli_real_escape_string($connection, $username);
+    $password = mysqli_real_escape_string($connection, $password);
+
     $query = "SELECT * FROM users WHERE username = '{$username}' ";
     $select_user_query = mysqli_query($connection, $query);
 
@@ -34,10 +37,8 @@
 
   $title = "Logga in";
   include("includes/header.php");
+
   ?>
-
-
-  <body>
 
     <form class="login animated fadeInDown" action="login.php" method="post">
       <h3>Logga in</h3>
