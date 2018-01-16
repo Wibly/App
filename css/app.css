@@ -1,0 +1,48 @@
+* {
+  box-sizing: border-box;
+}
+html, body {
+  height: 100%;
+  background: #C02425;
+  background: -webkit-linear-gradient(to right, #F0CB35, #C02425);
+  background: linear-gradient(to right, #F0CB35, #C02425);
+}
+body {
+  font-family: 'Lobster', cursive;+
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+form {
+ width: 20%;
+ background: #ecf0f1;
+ padding: 20px;
+ width: 320px;
+ border-radius: 3px;
+ border: 1px solid #000;
+
+}
+input {
+  line-height: 40px;
+  display: block;
+  /*border-radius: 10px;*/
+  margin: 0 auto 5px;
+  padding: 0 20px;
+  font-size: 17px;
+  width: 100%;
+
+}
+h3 {
+  font-size: 22px;
+  margin: 0 auto 10px;
+}
+.login input[type=submit]{
+  background: #e74c3c;
+  color: #ecf0f1;
+  transition: background .25s ease;
+}
+.login input[type=submit]:hover {
+  background: #c0392b;
+}
