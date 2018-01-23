@@ -7,16 +7,18 @@ html, body {
   background: -webkit-linear-gradient(to right, #F0CB35, #C02425);
   background: linear-gradient(to right, #F0CB35, #C02425);
 }
-body {
-  font-family: 'Lobster', cursive;+
-  margin: 0;
+#register, #login {
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 }
-form {
- width: 20%;
+body {
+  font-family: 'Lobster', cursive;
+  margin: 0;
+
+}
+.ebin {
  background: #ecf0f1;
  padding: 20px;
  width: 320px;
@@ -45,4 +47,34 @@ h3 {
 }
 .login input[type=submit]:hover {
   background: #c0392b;
+}
+nav {
+  background: #242424;
+  color: #fff;
+  height: 80px;
+  line-height: 80px;
+  padding: 0 20px;
+  position: relative;
+  text-align: center;
+}
+nav a {
+  color: #ddd;
+  float: right;
+}
+nav h1 {
+  margin: 0 auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+section {
+  background: #fff;
+  margin: 100px auto;
+  padding: 20px;
+  width: 320px;
+}
+section h2 {
+  margin: 0 auto;
+  text-align: center;
 }

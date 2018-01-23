@@ -1,17 +1,40 @@
 <?php
-  session_start();
   $title = "Välkommen";
   include "includes/header.php";
+  session_start();
+
+  if (isset($_POST['addTask'])) {
+    addTask();
+  }
  ?>
 
- <?php if ($_SESSION['username']) : ?>
+ <?php if (isset($_SESSION['username'])) : ?>
+   <nav>
+     <a href="logout.php">Logga ut <?php echo $_SESSION['username']; ?></a>
+     <h1>App</h1>
+   </nav>
 
-    <h1>Välkommen, <?php echo $_SESSION['username']; ?>!</h1>
-    <a href="logout.php">Logga ut <?php echo $_SESSION['username']; ?></a>
+    <section>
+      <h2>Att göra:</h2>
+      <ul>
+        <?php
+          $id = $_SESSION['id'];
+          $query = "SELECT title  FROM tasks WHERE user_id = '$id'" ;
+          $result = mysqli_query($connection, $query);
 
+          while ($row = mysqli_fetch_array($result)) {
+            echo "<li>" . $row['title'] . "</li>";
+          }
+        ?>
+      </ul>
+      <form action="index.php" method="post">
+        <input type="text" name="taskName">
+        <input type="submit" name="addTask" value="Lägg till">
+      </form>
+    </section>
 <?php else : ?>
 
-    <h1>GTFO!</h1>
+    <h1>Ingen Tillgång!</h1>
 
 <?php endif; ?>
 
