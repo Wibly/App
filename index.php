@@ -19,13 +19,19 @@
       <ul>
         <?php
           $id = $_SESSION['id'];
-          $query = "SELECT title  FROM tasks WHERE user_id = '$id'" ;
+          $query = "SELECT * FROM tasks WHERE user_id = '$id'" ;
           $result = mysqli_query($connection, $query);
 
-          while ($row = mysqli_fetch_array($result)) {
-            echo "<li>" . $row['title'] . "</li>";
-          }
+            while ($row = mysqli_fetch_array($result)) :
         ?>
+ 
+          <li>
+            <?php echo $row['title']; ?>
+            <a href="edit.php?taskID=<?php echo $row['id']; ?>&taskName=<?php echo $row['title']; ?>">Edit</a>
+            <a href="delete.php?taskID=<?php echo $row['id']; ?>">X</a>
+          </li>
+
+      <?php endwhile; ?>
       </ul>
       <form action="index.php" method="post">
         <input type="text" name="taskName">
@@ -34,7 +40,7 @@
     </section>
 <?php else : ?>
 
-    <h1>Ingen Tillgång!</h1>
+    <h1>Du måste <a href="login.php">logga in</a></h1>
 
 <?php endif; ?>
 
