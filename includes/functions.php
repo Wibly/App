@@ -1,5 +1,7 @@
 <?php
 
+  $appName = "Apperino";
+
   function usernameExists($username) {
     global $connection;
 

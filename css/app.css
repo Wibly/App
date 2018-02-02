@@ -1,83 +1,75 @@
-* {
-  box-sizing: border-box;
-}
-html, body {
+  /*Layout*/
+ @import url('https://fonts.googleapis.com/css?family=Lobster');
+ html, body {
   height: 100%;
-  background: #C02425;
-  background: -webkit-linear-gradient(to right, #F0CB35, #C02425);
-  background: linear-gradient(to right, #F0CB35, #C02425);
 }
-#register, #login, #delete {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-}
-body {
-  font-family: 'Lobster', cursive;
-  margin: 0;
+  /*Layout END*/
 
-}
-.ebin {
- background: #ecf0f1;
- padding: 20px;
- width: 320px;
- border-radius: 3px;
- border: 1px solid #000;
+  /*Splash Screen*/
+  #splashScreen {
+    align-items: center;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+  }
+  #splashScreen:before {
+    animation-name: splashScreenAnimation;
+    animation-duration: 2.5s;
+    background: url(../img/Apperino.svg) no-repeat center;
+    content: '';
+    display: block;
+    height: 33.333333%;
+    width: 33.333333%;
+  }
+  /*Splash Screen END*/
 
-}
-input {
-  line-height: 40px;
-  display: block;
-  /*border-radius: 10px;*/
-  margin: 0 auto 5px;
-  padding: 0 20px;
-  font-size: 17px;
-  width: 100%;
+  /* Landing Page */
+  video {
+    object-fit: cover;
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: -1;
+  }
+  main {
+    text-align: center;
+    width: 480px;
+  }
+  main p {
+    color: #fff;
+    font-size: 24px;
 
+  }
+  main a {
+    margin: 20px;
+    margin-top: 40px;
+    border: 2px solid #fff !important;
+  }
+  /* Landing Page END */
+
+/*Animations*/
+@keyframes splashScreenAnimation {
+  from {
+    opacity: 0;
+    transform: translate3d(0, -100%, 0);
+  }
+  75% {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
 }
-h3 {
-  font-size: 22px;
-  margin: 0 auto 10px;
-}
-.login input[type=submit]{
-  background: #e74c3c;
-  color: #ecf0f1;
-  transition: background .25s ease;
-}
-.login input[type=submit]:hover {
-  background: #c0392b;
-}
-nav {
-  background: #242424;
-  color: #fff;
-  height: 80px;
-  line-height: 80px;
-  padding: 0 20px;
-  position: relative;
-  text-align: center;
-}
-nav a {
-  color: #ddd;
-  float: right;
-}
-nav h1 {
-  margin: 0 auto;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-section {
-  background: #fff;
-  margin: 100px auto;
-  padding: 20px;
-  width: 320px;
-}
-section h2 {
-  margin: 0 auto;
-  text-align: center;
-}
-section ul li a {
-  float: right;
-}
+  /*Animations END*/

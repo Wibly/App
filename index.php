@@ -1,49 +1,27 @@
 <?php
-  $title = "Välkommen";
-  include "includes/header.php";
-  session_start();
+$bodyClass = "d-flex justify-content-center align-items-center";
+include 'includes/header.php';
 
-  if (isset($_POST['addTask'])) {
-    addTask();
-  }
- ?>
+$query = "SELECT * FROM users";
+$result = mysqli_query($connection, $query);
+$num_rows = mysqli_num_rows($result);
 
- <?php if (isset($_SESSION['username'])) : ?>
-   <nav>
-     <a href="logout.php">Logga ut <?php echo $_SESSION['username']; ?></a>
-     <h1>App</h1>
-   </nav>
+?>
 
-    <section>
-      <h2>Att göra:</h2>
-      <ul>
-        <?php
-          $id = $_SESSION['id'];
-          $query = "SELECT * FROM tasks WHERE user_id = '$id'" ;
-          $result = mysqli_query($connection, $query);
+      <!-- Background video -->
+      <video autoplay loop muted>
+        <source src="vid/ebin.mp4" type="video/mp4">
+          Your browser doesn not support the video tag
+      </video>
+      <!-- Background video END -->
 
-            while ($row = mysqli_fetch_array($result)) :
-        ?>
- 
-          <li>
-            <?php echo $row['title']; ?>
-            <a href="edit.php?taskID=<?php echo $row['id']; ?>&taskName=<?php echo $row['title']; ?>">Edit</a>
-            <a href="delete.php?taskID=<?php echo $row['id']; ?>">X</a>
-          </li>
+      <!-- Main content -->
+      <main>
+        <img src="img/apperino.svg" class="img-fluid animated jackInTheBox" alt="Apperino">
+        <a href="login.php" class="btn btn-primary">Logga In</a>
+        <a href="register.php" class="btn btn-primary">Registrera</a>
+        <p>Med <?php echo $num_rows; ?> användare!</p>
+      </main>
+      <!-- Main content END -->
 
-      <?php endwhile; ?>
-      </ul>
-      <form action="index.php" method="post">
-        <input type="text" name="taskName">
-        <input type="submit" name="addTask" value="Lägg till">
-      </form>
-    </section>
-<?php else : ?>
-
-    <h1>Du måste <a href="login.php">logga in</a></h1>
-
-<?php endif; ?>
-
-  </body>
-
-</html>
+<?php include 'includes/footer.php'; ?>
