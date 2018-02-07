@@ -34,7 +34,7 @@
       if ($username === $db_username && $password === $db_password) {
         $_SESSION['id'] = $db_id;
         $_SESSION['username'] = $db_username;
-        header("Location: index.php");
+        header("Location: admin.php");
       }
       else {
         $errorMessage = 'Fel användar eller lösenord';

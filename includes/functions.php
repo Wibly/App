@@ -15,6 +15,7 @@
       return false;
     }
   }
+
   function addTask() {
     global $connection;
 
@@ -31,4 +32,16 @@
       echo "wtf?";
     }
   }
+
+  function fixUsernameInTitle() {
+    global $title;
+    if (isset($_SESSION['username'])) {
+    if (substr($_SESSION['username'], -1)=='s') {
+      $title = $_SESSION['username'] . ' uppgifter';
+    }
+    else {
+      $title = $_SESSION['username'] . 's' . ' uppgifter';
+    }
+  }
+}
 ?>

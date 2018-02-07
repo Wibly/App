@@ -14,7 +14,7 @@
 
     $query = "UPDATE tasks SET title='$newTaskName' WHERE id = '$taskID'";
     $editTaskQuery = mysqli_query($connection, $query);
-    header("location: index.php");
+    header("location: admin.php");
   }
 
  ?>

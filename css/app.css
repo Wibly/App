@@ -1,15 +1,29 @@
-  /*Layout*/
+  /*Google Fonts*/
  @import url('https://fonts.googleapis.com/css?family=Lobster');
+ @import url('https://fonts.googleapis.com/css?family=Ubuntu');
+ /*Google Fonts END*/
+
  html, body {
   height: 100%;
 }
+
+body {
+  background: #CB356B;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #BD3F32, #CB356B);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #BD3F32, #CB356B); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+  /*Layout*/
   /*Layout END*/
 
   /*Splash Screen*/
   #splashScreen {
     align-items: center;
-    background: #000;
+    background: radial-gradient(#e74c3c, #000);
+    background: -o-radial-gradient(#e74c3c, #000);
+    background: -webkit-radial-gradient(#e74c3c, #000);
     display: flex;
+    flex-direction: column;
     justify-content: center;
     z-index: 2;
     position: fixed;
@@ -21,11 +35,41 @@
   #splashScreen:before {
     animation-name: splashScreenAnimation;
     animation-duration: 2.5s;
+    animation-fill-mode: both;
     background: url(../img/Apperino.svg) no-repeat center;
     content: '';
     display: block;
     height: 33.333333%;
     width: 33.333333%;
+  }
+  #splashScreen blockquote {
+    color: #ecf0f1;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+  }
+  #quote {
+    font-size: 24px;
+    margin: 0;
+  }
+  #quote:before, #quote:after, #author:before {
+    display: inline-block;
+  }
+  #quote:before{
+    content: '“';
+    margin: 0 5px 0 0;
+  }
+  #quote:after {
+    content: '”';
+    margin: 0 0 0 5px;
+  }
+  #author {
+    float: right;
+    font-size: 14px;
+    opacity: .75;
+  }
+  #author:before {
+    content: "—";
+    margin: 0 5px 0 0;
   }
   /*Splash Screen END*/
 
@@ -41,19 +85,27 @@
     top: 0;
     z-index: -1;
   }
-  main {
-    text-align: center;
-    width: 480px;
+
+  main img {
+    margin: 0 auto 40px;
   }
+
+
   main p {
     color: #fff;
+    font-family: 'Ubuntu', sans-serif;
     font-size: 24px;
-
+    text-shadow: 2px 2px #000;
+  }
+  main p span {
+    font-weight: bold;
   }
   main a {
+    background-color: #3e0011 !important;
+    border: 2px solid #fff !important;
+    font-family: 'Ubuntu', sans-serif;
     margin: 20px;
     margin-top: 40px;
-    border: 2px solid #fff !important;
   }
   /* Landing Page END */
 
@@ -73,3 +125,27 @@
   }
 }
   /*Animations END*/
+
+  /*Navigation*/
+    .navbar-brand img {
+      height: 50px;
+      width: 50px;
+    }
+  /*Navigation END*/
+
+  /*tasks*/
+  #tasks {
+    background: #fff;
+    border-radius: 6px;
+    margin: 40px auto 0;
+    padding: 20px;
+    text-align: center;
+  }
+  #tasks h2 {
+    display: inline-block;
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0 auto 20px;
+    border-bottom: 1px solid #00c9ff;
+    padding: 0 20px 5px;
+  }
+  /*tasks end*/
