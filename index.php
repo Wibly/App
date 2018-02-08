@@ -13,7 +13,7 @@ $numberOfUsers = mysqli_num_rows($result);
 
       <!-- Background video -->
       <video autoplay loop muted>
-        <source src="vid/ebin.mp4" type="video/mp4">
+        <source src="vid/appBack.mp4" type="video/mp4">
           Your browser doesn not support the video tag
       </video>
       <!-- Background video END -->

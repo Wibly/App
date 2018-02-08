@@ -24,7 +24,7 @@ $(document).ready(function() {
     $('blockquote').append('<footer id="author">Emil Hoffman</footer>');
     $('#quote').html(randomQuote.quote);
     $('#author').html(randomQuote.author);
-    // $("#splashScreen").show().delay(2500).fadeOut();
+    $("#splashScreen").show().delay(2500).fadeOut();
     sessionStorage.setItem('splashScreen', 'true');
 
     // var myArray = ['Ebin', 'Joo', 'Bulla'];
